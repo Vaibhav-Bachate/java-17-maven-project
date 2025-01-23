@@ -1,4 +1,4 @@
-# Java Template -Maven
+# Java Template -
 
 This repo exists with a **newer LTS version as a [Java 21 Maven project](https://github.com/felix-seifert/java-21-maven-project)**!
 
