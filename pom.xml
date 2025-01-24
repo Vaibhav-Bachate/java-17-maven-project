@@ -24,7 +24,6 @@
 
     <build>
         <plugins>
-            <!-- Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -37,8 +36,6 @@
                     </compilerArgs>
                 </configuration>
             </plugin>
-
-            <!-- Shade Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -51,8 +48,10 @@
                         </goals>
                         <configuration>
                             <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>se.kth.compilers.Hello</mainClass>
                                 </transformer>
                             </transformers>
@@ -60,15 +59,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- SonarQube Plugin -->
-            <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>4.0.0.4211</version>
-            </plugin>
-
-            <!-- Surefire Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -77,6 +67,13 @@
                     <argLine>--enable-preview</argLine>
                 </configuration>
             </plugin>
+            <!-- Update the sonar-maven-plugin to 3.9 for compatibility with SonarQube 7.9.1 -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9</version>  <!-- This version is compatible with SonarQube 7.9.1 -->
+            </plugin>
         </plugins>
     </build>
+
 </project>
